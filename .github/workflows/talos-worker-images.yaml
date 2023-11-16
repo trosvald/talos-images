@@ -81,7 +81,7 @@ jobs:
             --system-extension-image ghcr.io/siderolabs/intel-ucode:${{ env.INTEL_UCODE_VERSION }} \
             --system-extension-image ghcr.io/siderolabs/i915-ucode:${{ env.I915_UCODE_VERSION }} \
             --system-extension-image ghcr.io/siderolabs/iscsi-tools:${{ env.ISCSI_TOOLS_VERSION }} \
-            --system-extension-image ghcr.io/siderolabs/nut-client:${{ env.UPSNUT_TOOLS_VERSION }}
+            --system-extension-image ghcr.io/siderolabs/nut-client:${{ env.UPSNUT_TOOLS_VERSION }} \
             --extra-kernel-arg net.ifnames=0
 
       - name: Upload installer artifact
