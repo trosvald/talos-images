@@ -12,6 +12,7 @@ env:
   INTEL_UCODE_VERSION: 20230808
   I915_UCODE_VERSION: 20230804
   ISCSI_TOOLS_VERSION: v0.1.4@sha256:3ab305068aa28513b26ab3c5b1f2937dbe3f63b9c50abe290287cc58eb454bb9
+  UPSNUT_TOOLS_VERSION: 2.8.0-v1.5.5
 
 jobs:
   check-releases:
@@ -70,7 +71,8 @@ jobs:
             --arch amd64 \
             --system-extension-image ghcr.io/siderolabs/intel-ucode:${{ env.INTEL_UCODE_VERSION }} \
             --system-extension-image ghcr.io/siderolabs/i915-ucode:${{ env.I915_UCODE_VERSION }} \
-            --system-extension-image ghcr.io/siderolabs/iscsi-tools:${{ env.ISCSI_TOOLS_VERSION }} 
+            --system-extension-image ghcr.io/siderolabs/iscsi-tools:${{ env.ISCSI_TOOLS_VERSION }} \
+            --system-extension-image ghcr.io/siderolabs/nut-client:${{ env.UPSNUT_TOOLS_VERSION }}
 
       - name: Build amd64 iso w/ addons
         run: |
@@ -79,6 +81,7 @@ jobs:
             --system-extension-image ghcr.io/siderolabs/intel-ucode:${{ env.INTEL_UCODE_VERSION }} \
             --system-extension-image ghcr.io/siderolabs/i915-ucode:${{ env.I915_UCODE_VERSION }} \
             --system-extension-image ghcr.io/siderolabs/iscsi-tools:${{ env.ISCSI_TOOLS_VERSION }} \
+            --system-extension-image ghcr.io/siderolabs/nut-client:${{ env.UPSNUT_TOOLS_VERSION }}
             --extra-kernel-arg net.ifnames=0
 
       - name: Upload installer artifact
